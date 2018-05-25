@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Marcin Liweń</title>
+    <link rel="stylesheet" href="style.css">
+   <script src="events.js"></script>
+</head>
+<body  >
+    <div class="App">
+        <header id="App-header" class="App-header">
+                
+            <div id="top-bar">
+                <div class="App-title">Marcin Liweń</div>
+                <div class="App-subtitle">kontratenor</div>
+            </div>
+            <nav id="myHeader" class="nav">
+                    <button id="nav-home" href="#App-header"  class='menu-item'>home</button>
+                    <button id="nav-bio"   class='menu-item'>bio</button>
+                    <button id="nav-kal" href="#kalendarz" class='menu-item'>kalendarz</button>
+                    <button id="nav-med" href="#" class='menu-item'>media</button>
+                    <button id="nav-kon" href="#" class='menu-item'>kontakt</button>
+            </nav>            
+        </header>
+        
+        <main  class="tlo">
+         
+            <img id="tlo"  src="tlo01.jpg">
+            
+            <article class="article-contener" id="bio-text">
+                <div class="article-title" id="bio-title"><p>bio</p></div>
+                <div id="bio-contener">
+                <p>W 2012 ukończył studia magisterskie na wydziale wokalnym na Uniwersytecie Muzycznym Fryderyka Chopina w Warszawie, studia licencjackie ukończył na Akademii Muzycznej im. J.I. Paderewskiego w Poznaniu. Kształcił się na kursach mistrzowskich u Ali Simoni, Paula Esswooda, Michael’a Chanse’a, Artura Stefanowicza, Marka Rzepki. </p>
+                <p>Otrzymał tytuł magistra biotechnologii na Uniwersytecie  Warmińsko Mazurskim w Olsztynie.</p>
+                <p>Koncertuje jako solista i kameralista z repertuarem oratoryjno koantatowym z okresu renesansu i baroku. Występował na najważniejszych festiwalach muzyki dawnej w Polsce: Misteria Paschalia, Opera Rara, Wratislavia Cantans, Starosądecki Festiwal Muzyki Dawnej. Śpiewał również na festiwalach w Austrii, Niemczech, Francji i Hiszpani. Pracował między innymi z takimi dyrygentami jak Vincent Dumestre, Giovanni Antonini, Paul McCreesh, Marcin Szelest, Jan Tomasz Adamus.</p>
+                <p>W lipcu 2014 z zespołem La Tempesta nagrywał utwory Mikołaja Zieleńskiego ze zbioru Offertoria et Communiones totius anni. W maju 2013 z zespołem Sabionetta dokonał nagrań płyty „Podobieństwo żywota krześcijańskiego, XVI – wieczna muzyka polska”.</p>
+                </div>    
+            </article>
+            <aside id="next-kon" class="aside-kon">
+                <div class='kon-title'><h3>najbliższy koncert</h3></div>
+                <hr/>
+                <div class='next-contener'>
+                    <div class='next-item'></div>
+                    <div class='next-item'>zespół</div>
+                    <div class='next-item'>data i godina</div>
+                    <div class='next-item'> miejsce koncertu</div>
+                </div>
+            </aside>
+            <article class="article-contener" id="kalendarz">
+                <div class="article-title" id="kal-title"><p>Nadchodzące koncerty</p></div>
+                <div id="next-cont" class='next-contener'>
+                    <div id="next-title" class='next-item next-title'></div>
+                    <div id="next-band" class='next-item next-band'>zespół</div>
+                    <div id="next-date" class='next-item next-date'>data i godina</div>
+                    <div id="next-place" class='next-item next-place'>miejsce koncertu</div>
+                </div>
+            </article>
+            <article class="article-contener media" id="media">
+                <div class="article-title" id="media-title"><p>media</p></div>
+                <div class="media-video">
+                    <iframe class="video" src="https://www.youtube.com/embed/r2_he48HPG8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div><p>opis</p></div>
+                </div>
+                <div class="media-video">   
+                    <iframe class="video" src="https://www.youtube.com/embed/qATW0pDaNXo?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>                
+                    <div><p>opis</p></div>
+                </div>
+            </article>
+            <article class="article-contener kont" id="kontakt">
+                <div class="article-title kont"><p>kontakt</p></div>
+                <div class="kont email"><p >marcin.liwen@gmail com</p></div>
+            </article>
+        </main>
+    </div>
+    <script>
+            var header = document.getElementById("myHeader");
+            var topBar = document.getElementById('top-bar');
+            var sticky = topBar.offsetTop;
+
+
+
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+            header.style.top = "96px";
+        };
+
+
+        var header = document.getElementById("myHeader");
+        var topBar = document.getElementById('top-bar');
+        var sticky = topBar.offsetTop;
+
+    
+        window.onscroll = function() {myFunction()};
+          
+        function myFunction() {
+        if (window.pageYOffset >=5) {
+            document.getElementById("top-bar").style.top = "-80px";
+            header.style.top = "0";
+        } else {
+            document.getElementById("top-bar").style.top = "0";
+            header.style.top = "96px";
+        }
+        }
+        
+       
+        var myKoncerts = '{"title":"Muzyka Maryjna","band":"Tempesta", "date":"24.06.2018","place":"Barok w Radości"}';
+        var nextKon = JSON.parse(myKoncerts);
+        document.getElementById('next-title').innerHTML = nextKon.title;
+        document.getElementById('next-band').innerHTML = nextKon.band;
+        document.getElementById('next-date').innerHTML = nextKon.date;
+        document.getElementById('next-place').innerHTML = nextKon.place;
+        
+        document.getElementById("nav-home").onclick = function(event) {
+            
+            var article = document.getElementById('App-header');
+            article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+            
+        }
+        document.getElementById("nav-bio").onclick = function(event) {
+            
+            
+            var article = document.getElementById('bio-text');
+            article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+            
+        }
+        document.getElementById("nav-kon").onclick = function(event) {
+            header.classList.add("sticky"); 
+            var article = document.getElementById('kontakt');
+              article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+        }        
+        document.getElementById("nav-kal").onclick = function(event) {
+            header.classList.add("sticky"); 
+            var article = document.getElementById('kalendarz');
+              article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+        }      
+        document.getElementById("nav-med").onclick = function(event) {
+            header.classList.add("sticky"); 
+            var article = document.getElementById('media');
+              article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+        }   
+        
+        
+        function wait(ms){
+            var start = new Date().getTime();
+            var end = start;
+            while(end < start + ms) {
+              end = new Date().getTime();
+           }
+         }
+         
+    </script>
+</body>
+</html>
