@@ -60,14 +60,19 @@ body{
 
 #tlo{
     width: 100%;
+    margin-top: 40px;
 }
 #top-bar{
     position: fixed;
     top: 0;
-    width: 100%; 
+    width: 100%;
     background-color: black;
     z-index: 100;
-    transition: top 0.3s; 
+    transition: top 0.3s;
+    display:  flex;
+    flex-wrap: wrap;
+    /* float:  left; */
+    /* padding: 10px 0; */
 }
 #myHeader{
     position: fixed;
@@ -122,7 +127,8 @@ aside{
     bottom:10%;
 }
 .next-contener{
-    margin: 15px 50px;
+    margin: 15px 30%;
+    /* border-bottom: solid 1px black; */
 }
 .kon-title{
     margin:3px 50px;
@@ -139,6 +145,20 @@ aside h3{
     justify-content: center;
     margin: 10px 50px;
 }
+/***********kalendrz************/
+.next-title{
+    font-size: 24px;
+    border-bottom: solid 1px black;
+}
+.next-band{
+
+}
+.next-date{
+
+}
+.next-place{
+
+}
 hr{
     margin: 0px 30px;
 }
@@ -148,10 +168,7 @@ hr{
     
 }
 #bio-text{
-   
-    background-color: #0a0a0ace;
-   
-   
+background-color: #0a0a0ace; 
 }
 #bio-contener{
     width: 50%;
@@ -178,9 +195,6 @@ hr{
     background-color: black;
     display: flex;
 }
-.article-contener{
-   
-}
 .article-title{
     padding: 30px 0;
 }
@@ -190,6 +204,8 @@ hr{
 }
 #kalendarz{
     background-color: white;
+    /* padding:  10px 0; */
+    padding-bottom: 10px;
 }
 #kal-title p{
   
@@ -289,8 +305,39 @@ hr{
 /*********************media query*************************/
 
 @media (min-width: 224px){
+    #top-bar{
+        padding: 2% 0;
+    }
+    
     .App-title{
-        font-size: 1.5em;
+        font-size: 22px;
+    }
+    .App-subtitle{
+      font-size:0.5em;
+    }
+    #mobileMenuButton{
+        display: flex;
+        width: 15%;
+        /* margin: auto; */
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        padding:  0 5px;
+    }
+    .burger{
+        width: 30px;
+        height: 1px;
+        background-color: white;
+        margin: 4px 0;
+        /* justify-self: center; */
+    }
+    .header-contener{
+        align-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        width: 85%;
+        justify-content: center;
+        /* padding: 8px 0; */
     }
     #bio-contener{
         width: 80%;
@@ -317,7 +364,21 @@ hr{
     .menu-item{
         display: none;
     }
+    .article-title{
+      padding: 10px 0;
+    }
+    .article-title p{
+      padding: 0;
+      margin: 0;
+
+    }
     
+    .next-item{
+      margin: 0px;
+    }
+    .next-contener{
+      margin: 51px 10%;
+    }
 }
 @media (min-width: 425px) {
     #main{
@@ -327,8 +388,24 @@ hr{
         background-repeat: no-repeat;
         background-color: #000;
     }
+    .App-title{
+        font-size: 33px;
+    }
+    .App-subtitle{
+      font-size:14px;
+      
+    }
     #bio-text{
         /*margin-top:calc(100vh - 170px);*/
+    }
+    #mobileMenuButton{
+        display: flex;
+        width: 15%;
+        flex-wrap: wrap;
+        padding: 0 4%;
+    }
+    .header-contener{
+        width: 85%;
     }
     
 }
@@ -338,6 +415,9 @@ hr{
         background-size: 100%;
         background-position: center top;
     }
+    #top-bar{
+        padding: 0;
+    }
     #bio-contener{
         width: 50%;
     }
@@ -346,6 +426,18 @@ hr{
     }
     .App-title{
         font-size: 3.5em;
+    }
+    .App-subtitle{
+      font-size:1em
+      
+    }
+    #mobileMenuButton{
+        display:none;
+        width:15%;
+    }
+    .header-contener{
+        width: 100%;
+        display: block;
     }
     .video{
         background-color: aqua;
@@ -357,6 +449,18 @@ hr{
     }
     .menu-item{
         display: block;
+    }
+    .article-title{
+      padding: 30px 0;
+    }
+    .article-title p{
+      margin:50px 0;
+    }
+    .next-item{
+      /* margin: 10px 20%; */
+    }
+    .next-contener{
+      margin: 50px 25%;
     }
 }
     

@@ -6,16 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Marcin Liweń</title>
     <link rel="stylesheet" href="style.css">
-   <script src="events.js"></script>
+   
 </head>
 <body  >
     <div class="App">
         <header id="App-header" class="App-header">
                 
             <div id="top-bar">
-                <div class="App-title">Marcin Liweń</div>
-                <div class="App-subtitle">kontratenor</div>
+                <div id="mobileMenuButton">
+                        <div class="burger" ></div>
+                        <div class="burger"></div>
+                        <div class="burger"></div>
+                </div>
+                <div class="header-contener">
+                    <div class="App-title">Marcin Liweń</div>
+                    <div class="App-subtitle">kontratenor</div>
+                </div>
             </div>
+            
             <nav id="myHeader" class="nav">
                     <button id="nav-home" href="#App-header"  class='menu-item'>home</button>
                     <button id="nav-bio"   class='menu-item'>bio</button>
@@ -56,6 +64,12 @@
                     <div id="next-date" class='next-item next-date'>data i godina</div>
                     <div id="next-place" class='next-item next-place'>miejsce koncertu</div>
                 </div>
+                <div id="next-cont" class='next-contener'>
+                    <div id="next-title" class='next-item next-title'>Stary Sącz Festiwal</div>
+                    <div id="next-band" class='next-item next-band'>zespół</div>
+                    <div id="next-date" class='next-item next-date'>data i godina</div>
+                    <div id="next-place" class='next-item next-place'>miejsce koncertu</div>
+                </div>
             </article>
             <article class="article-contener media" id="media">
                 <div class="article-title" id="media-title"><p>media</p></div>
@@ -74,6 +88,26 @@
             </article>
         </main>
     </div>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBF7VDCHql0B4HckM0-8dBmZF76salQA7Y",
+    authDomain: "kontratenor-7a94b.firebaseapp.com",
+    databaseURL: "https://kontratenor-7a94b.firebaseio.com",
+    projectId: "kontratenor-7a94b",
+    storageBucket: "",
+    messagingSenderId: "393469327791"
+  };
+  firebase.initializeApp(config);
+
+//add value from firebase to kalendarz data
+  var nextTitle = document.getElementById('next-title');
+  var dbRef = firebase.database().ref().child('text');
+  dbRef.on('value', snap => nextTitle.innerText = snap.val());
+</script>
+
     <script>
             var header = document.getElementById("myHeader");
             var topBar = document.getElementById('top-bar');
