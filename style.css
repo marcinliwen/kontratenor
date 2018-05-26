@@ -60,7 +60,7 @@ body{
 
 #tlo{
     width: 100%;
-    margin-top: 40px;
+    margin-top: 15%;
 }
 #top-bar{
     position: fixed;
@@ -306,9 +306,11 @@ background-color: #0a0a0ace;
 
 @media (min-width: 224px){
     #top-bar{
-        padding: 2% 0;
+        padding: 3% 0;
     }
-    
+    #tlo{
+      margin-top:15%;
+    }
     .App-title{
         font-size: 22px;
     }
@@ -414,6 +416,9 @@ background-color: #0a0a0ace;
         background-image: url(tlo01.jpg);
         background-size: 100%;
         background-position: center top;
+    }
+    #tlo{
+      margin-top:10%
     }
     #top-bar{
         padding: 0;
