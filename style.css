@@ -145,6 +145,35 @@ aside h3{
     justify-content: center;
     margin: 10px 50px;
 }
+/*****************arrow up*************/
+i {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    /* margin-top: 10px; */
+    /* align-self: baseline; */
+}
+.up {
+    transform: rotate(-135deg);
+    /* -webkit-transform: rotate(-135deg); */
+}
+#to-top{
+     /* Hidden by default */
+     position: fixed; /* Fixed/sticky position */
+     bottom: -40px; /* Place the button at the bottom of the page */
+     /* Place the button 30px from the right */
+     z-index: 99; /* Make sure it does not overlap */
+     width:  100%;
+     background-color: black;
+     height: 36px;
+     align-content: center;
+     /* display:  flex; */
+     /* margin:  auto; */
+     /* justify-content:  center; */
+     padding: 7px 0;
+     transition: bottom 0.3s;
+}
 /***********kalendrz************/
 .next-title{
     font-size: 24px;
@@ -232,8 +261,8 @@ background-color: #0a0a0ace;
     color: white;
 }
 .media-video{
-    margin: 20px auto;
-    height: 80vh;
+    margin: 50px auto;
+    /* height: 80vh; */
     justify-content: center;
 }
 

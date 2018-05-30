@@ -87,6 +87,7 @@
                 <div class="kont email"><p >marcin.liwen@gmail com</p></div>
             </article>
         </main>
+        <div id="to-top"><i class="arrow up"></i></div>
     </div>
    
 
@@ -167,6 +168,17 @@
                 //header.style.top = "96";
             }
             prevScrollpos = currentScrollPos;
+            };
+
+            //to top button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("to-top").style.bottom = "0px";
+                } else {
+                    document.getElementById("to-top").style.bottom = "-40px";
+                }
             }
                 
        } else {
@@ -183,7 +195,16 @@
         }
         }
        };
-    
+       
+    var toTop = document.getElementById('to-top');
+    toTop.onclick = function(){
+        window.scroll({
+            top:0,  
+            behavior: 'smooth' 
+          });
+        //document.body.scrollTop = 0; // For Safari
+        //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    };
 
 
         function wait(ms){
