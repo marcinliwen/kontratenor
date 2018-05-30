@@ -88,25 +88,8 @@
             </article>
         </main>
     </div>
+   
 
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBF7VDCHql0B4HckM0-8dBmZF76salQA7Y",
-    authDomain: "kontratenor-7a94b.firebaseapp.com",
-    databaseURL: "https://kontratenor-7a94b.firebaseio.com",
-    projectId: "kontratenor-7a94b",
-    storageBucket: "",
-    messagingSenderId: "393469327791"
-  };
-  firebase.initializeApp(config);
-
-//add value from firebase to kalendarz data
-  var nextTitle = document.getElementById('next-title');
-  var dbRef = firebase.database().ref().child('text');
-  dbRef.on('value', snap => nextTitle.innerText = snap.val());
-</script>
 
     <script>
             var header = document.getElementById("myHeader");
@@ -126,20 +109,11 @@
         var sticky = topBar.offsetTop;
 
     
-        window.onscroll = function() {myFunction()};
-          
-        function myFunction() {
-        if (window.pageYOffset >=5) {
-            document.getElementById("top-bar").style.top = "-80px";
-            header.style.top = "0";
-        } else {
-            document.getElementById("top-bar").style.top = "0";
-            header.style.top = "96px";
-        }
-        }
+        
         
        
         var myKoncerts = '{"title":"Muzyka Maryjna","band":"Tempesta", "date":"24.06.2018","place":"Barok w Radości"}';
+        
         var nextKon = JSON.parse(myKoncerts);
         document.getElementById('next-title').innerHTML = nextKon.title;
         document.getElementById('next-band').innerHTML = nextKon.band;
@@ -175,14 +149,49 @@
               article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
         }   
         
-        
+       //media query for apeare menu bar  on mobile devices
+       var mobileViewport = window.matchMedia("screen and (max-width: 480px)");
+  
+
+       if(mobileViewport.matches) {
+           // viewport <= 480px
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("top-bar").style.top = "0px";
+                //header.style.top = "0";
+            } else {
+                document.getElementById("top-bar").style.top = "-80px";
+                //header.style.top = "96";
+            }
+            prevScrollpos = currentScrollPos;
+            }
+                
+       } else {
+           // viewport > 480px
+           window.onscroll = function() {hideMenubar()};
+          
+        function hideMenubar() {
+        if (window.pageYOffset >=5) {
+            document.getElementById("top-bar").style.top = "-80px";
+            header.style.top = "0";
+        } else {
+            document.getElementById("top-bar").style.top = "0";
+            header.style.top = "96px";
+        }
+        }
+       };
+    
+
+
         function wait(ms){
             var start = new Date().getTime();
             var end = start;
             while(end < start + ms) {
               end = new Date().getTime();
            }
-         }
+         };
          
     </script>
 </body>
