@@ -307,7 +307,9 @@ background-color: #0a0a0ace;
 @media (min-width: 224px){
     #top-bar{
         padding: 3% 0;
-        border-bottom: #a50f07 solid 1px;
+        border-bottom: #a70901 solid 1px;
+        /* box-shadow: 0px -1px 5px 3px #0000008a; */
+        /* background-color: #8a8989; */
     }
     #tlo{
       margin-top:15%;
