@@ -347,8 +347,11 @@ background-color: #0a0a0ace;
     #bio-contener{
         width: 80%;
     }
-    #bio-text{
-        /*margin-top:calc(100vh - 420px);*/
+    .bio-text{
+        margin: 20px 0;
+        line-height: 31px;
+        font-size: 16px;
+        text-align: justify;
     }
     #main{
         /*
@@ -429,8 +432,9 @@ background-color: #0a0a0ace;
     #bio-contener{
         width: 50%;
     }
-    #bio-text{
-        
+    .bio-text{
+        margin: 30px 0;
+        line-height: 33px;
     }
     .App-title{
         font-size: 3.5em;
@@ -462,7 +466,7 @@ background-color: #0a0a0ace;
       padding: 30px 0;
     }
     .article-title p{
-      margin:50px 0;
+      margin-top: 50px;
     }
     .next-item{
       /* margin: 10px 20%; */
