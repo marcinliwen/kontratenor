@@ -83,11 +83,9 @@ body{
 
 
 nav{
-    
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
-    
 }
 a{
     text-decoration: none;
@@ -268,9 +266,7 @@ background-color: #0a0a0ace;
 
 /****************menu buttton**************************/
 
-.hide{
-    display: none;
-}
+
 /*********************media query*************************/
 
 @media (min-width: 224px){
@@ -340,11 +336,11 @@ background-color: #0a0a0ace;
         display: none;
     }
     .menu-item{
-        /* display: none; */
+        display: block;
         width:  100%;
         text-align:  center;
         height: 10px;
-        /* position:  relative; */
+        position:  relative;
     }
     .article-title{
       padding: 10px 0;
@@ -434,6 +430,32 @@ background-color: #0a0a0ace;
         display:none;
         width:15%;
     }
+    #myHeader{
+        position: fixed;
+        top: 96px;
+        z-index: 100;
+        transition: top 0.3s;
+        height: 75px;
+        width: 100%;
+        padding: 0px;
+        /* display:  flex; */
+        /* flex-wrap: wrap; */
+        /* justify-content:  center; */
+        align-items:  center;
+        background-color: #000;
+    }
+    #close-menu{
+        display: none;
+    }
+    
+    
+    nav{
+        
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        
+    }
     .header-contener{
         width: 100%;
         display: block;
@@ -448,6 +470,9 @@ background-color: #0a0a0ace;
     }
     .menu-item{
         display: block;
+        width: 10%;
+        margin: 0;
+        align-self: center;
     }
     .article-title{
       padding: 30px 0;
