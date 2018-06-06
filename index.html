@@ -25,6 +25,7 @@
             </div>
             
             <nav id="myHeader" class="nav">
+                    <div id="close-menu">X</div>
                     <button id="nav-home" href="#App-header"  class='menu-item'>home</button>
                     <button id="nav-bio"   class='menu-item'>bio</button>
                     <button id="nav-kal" href="#kalendarz" class='menu-item'>kalendarz</button>
@@ -125,6 +126,7 @@
             
             var article = document.getElementById('App-header');
             article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+            hideMenu();
             
         }
         document.getElementById("nav-bio").onclick = function(event) {
@@ -132,27 +134,61 @@
             
             var article = document.getElementById('bio-text');
             article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
-            
+            hideMenu();
         }
         document.getElementById("nav-kon").onclick = function(event) {
+            
             header.classList.add("sticky"); 
             var article = document.getElementById('kontakt');
               article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+              hideMenu();
         }        
         document.getElementById("nav-kal").onclick = function(event) {
+            
             header.classList.add("sticky"); 
             var article = document.getElementById('kalendarz');
               article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+              hideMenu();
         }      
         document.getElementById("nav-med").onclick = function(event) {
+            
             header.classList.add("sticky"); 
             var article = document.getElementById('media');
               article.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+              hideMenu();
         }   
-        
+
+        document.getElementById("close-menu").onclick = function(event){
+            hideMenu();
+        }
+        var menuOpen = false;
+
+        document.getElementById("mobileMenuButton").onclick = function(event){
+            if(!menuOpen){
+                openMenu();
+               
+            }
+            else{
+                hideMenu();
+            }
+        }
+
+        function openMenu(){
+            document.getElementById('myHeader').style.width = "100%";
+            menuOpen = true;
+        }
+        function hideMenu(){
+            document.getElementById('myHeader').style.width = "0px";
+            menuOpen = false;
+        }
        //media query for apeare menu bar  on mobile devices
        var mobileViewport = window.matchMedia("screen and (max-width: 480px)");
-  
+        
+       
+        // Detect all clicks on the document
+        
+
+        
 
        if(mobileViewport.matches) {
            // viewport <= 480px
@@ -190,13 +226,14 @@
         }
         }
        };
-       
+      
     var toTop = document.getElementById('to-top');
     toTop.onclick = function(){
         window.scroll({
             top:0,  
             behavior: 'smooth' 
           });
+          
         //document.body.scrollTop = 0; // For Safari
         //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     };
